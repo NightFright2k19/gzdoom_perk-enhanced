@@ -10,6 +10,7 @@ ZPERKMNU_GLOVELESSFIST = "Gloveless Fist";
 ZPERKMNU_FLIPFIST = "Fist Handedness";
 ZPERKMNU_FLIPPISTOL = "Pistol Handedness";
 ZPERKMNU_SMOOTHPROJ = "Smooth Projectiles";
+ZPERKMNU_ACCURATEPISTOL = "Accurate pistol";
 
 // Generic reusable labels
 ZPERKMNU_LEFT = "Left";
@@ -22,3 +23,4 @@ ZPERKMNU_HELPTEXT_GLOVELESSFIST = "Remove gloves from fists";
 ZPERKMNU_HELPTEXT_FLIPFIST = "Toggle punching handedness";
 ZPERKMNU_HELPTEXT_FLIPPISTOL = "Toggle pistol handedness";
 ZPERKMNU_HELPTEXT_SMOOTHPROJ = "Toggle smoothly animated projectiles";
+ZPERKMNU_HELPTEXT_ACCURATEPISTOL = "Remove pistol shot dispersal";

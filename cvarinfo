@@ -4,3 +4,4 @@ user bool zperk_flippistol = true;
 user bool zperk_glovelessfist = true;
 user bool zperk_flipfist = true;
 server bool zperk_smoothprojectiles = false;
+server bool zperk_accuratepistol = false;
