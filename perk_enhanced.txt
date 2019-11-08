@@ -2,10 +2,10 @@
 Advanced engine needed : ZDoom/GZDoom
 Primary purpose : Singleplayer/Multiplayer
 ===========================================================================
-Title : PerK's Smoother Weapon Animations Enhanced v3.0
+Title : PerK's Smoother Weapon Animations Enhanced v3.1
 Filename : PERK_ENHANCED.PK3 (formerly PK_ANIM1.WAD / PK_ANIM2.WAD)
-Release date : July 30, 2019
-Author : NightFright
+Release date : November 8, 2019
+Author : NightFright / Nash
 Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
                         Arachno Music Packs for Doom, Doom II et al.
                         Blinking eyes for Doom mugshot
@@ -34,20 +34,20 @@ Description : If you know the mod by Per Kristian for the Doom weapons to
 Credits to :            id Software (Doom and all its wonderful art)
                         Per Kristian (creator of the original animations mod)
 
-Additional Credits to:  Blox (improved gloves, SG/SSG frame tweaks, fixes for
-                             Z86 Chaingun, extra Plasmagun frames & code)
-                        Blue Shadow (Plasmagun code tweaks)
-                        Gifty (smooth rocket, plasma and BFG projectile sprites)
-                        IcyFreezy (black gloves from blakglov2.wad)
-                        JoeyTD (flipped Pistol with arm)
-                        Minigunner ("Polished Skull" Shotgun muzzleflash)
-                        Nash Muhandes (full mod overhaul, ZScript rewrite)
-                        NeuralStunner (PerK fists with gloves)
-                        Nevander (dynamic light fix for player, code tweaks)
-                        Phi108 (ZDoom DECORATE)
-                        Void Weaver (help with sound code for "multi-path" Chainsaw) 
-                        Z86 (smoother Chainsaw, SSG frame fix, Chaingun
-                            rotation/animation fix, smooth BFG)
+Additional Credits to:  Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
+                                           Z86 Chaingun, extra Plasmagun frames & code
+                        Blue Shadow ...... Plasmagun code tweaks
+                        Gifty ............ Smooth rocket, plasma and BFG projectile sprites
+                        IcyFreezy ........ Black gloves from blakglov2.wad
+                        JoeyTD ........... Flipped Pistol with arm
+                        Minigunner ....... "Polished Skull" Shotgun muzzleflash
+                        Nash Muhandes  ... Full mod overhaul, ZScript rewrite
+                        NeuralStunner .... PerK fists with gloves
+                        Nevander ......... Dynamic light fix for player, code tweaks
+                        Phi108 ........... ZDoom DECORATE
+                        Void Weaver ...... Help with sound code for "multi-path" Chainsaw
+                        Z86 .............. Smoother Chainsaw, SSG frame fix, Chaingun
+                                           rotation/animation fix, smooth BFG
 
 ===========================================================================
 * What is included *
@@ -94,6 +94,14 @@ content in this file to allow further distribution.
 
 
 * Changelog *
+
+Version 3.1 (Nov 8, 2019)
+-------------------------
+- Fixed compatibility with m8f's IDCLEVer
+- Merged some animation tweaks by DenisBelmondo to better match vanilla Doom behavior
+- Merged Scuba Steve's improved smooth shotgun sprites
+- Fixed A_Light behavior for all weapons
+- General sprite maintenance (cleanup of dirty pixels, fixing wrong offsets etc)
 
 Version 3.0 (Jul 30, 2019)
 --------------------------

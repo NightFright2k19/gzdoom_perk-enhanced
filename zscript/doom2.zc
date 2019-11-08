@@ -72,8 +72,8 @@ class ZPerkSuperShotgun : SuperShotgun
 		"####" A 5 A_ReFire();
 		Goto Ready;
 	Flash:
-		SHT2 J 4 Bright A_Light2();
-		SHT2 I 3 Bright A_Light1();
+		SHT2 J 3 Bright A_Light2();
+		SHT2 I 2 Bright A_Light1();
 		Goto LightDone;
 
 	SwapSprites:

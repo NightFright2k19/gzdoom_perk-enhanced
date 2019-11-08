@@ -28,7 +28,7 @@ class ZPerkHandler : EventHandler
 {
 	//===========================================================================
 	//
-	// Handle player spawn
+	// Handle swapping out vanilla weapons
 	//
 	//===========================================================================
 
@@ -36,32 +36,48 @@ class ZPerkHandler : EventHandler
 	{
 		PlayerPawn pmo = players[e.PlayerNumber].mo;
 		if (!pmo) return;
-		SetupPlayer(pmo);
+		SwapWeapons(pmo);
 	}
 
 	override void PlayerRespawned(PlayerEvent e)
 	{
 		PlayerPawn pmo = players[e.PlayerNumber].mo;
 		if (!pmo) return;
-		SetupPlayer(pmo);
+		SwapWeapons(pmo);
+	}
+	
+	override void WorldTick(void)
+	{
+		// I can't think of a better way LOL
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i])
+			{
+				let pmo = players[i].mo;
+				if (pmo)
+				{
+					SwapWeapons(pmo);
+				}
+			}
+		}
 	}
 
 	//===========================================================================
 	//
-	// Give smooth weapons to spawned player
+	// Give smooth weapons to player
 	//
 	//===========================================================================
 
-	void SetupPlayer(PlayerPawn pmo)
+	void SwapWeapons(PlayerPawn pmo)
 	{
-		if (pmo.FindInventory("Pistol"))
+		if (pmo.FindInventory("Pistol") && pmo.player.ReadyWeapon is "Pistol")
 		{
 			pmo.TakeInventory("Pistol", 0x7FFFFFFF);
 			pmo.GiveInventory("ZPerkPistol", 1);
 			pmo.TakeInventory("Clip", 20);
 		}
 
-		if (pmo.FindInventory("Fist"))
+		if (pmo.FindInventory("Fist") && pmo.player.ReadyWeapon is "Fist")
 		{
 			pmo.TakeInventory("Fist", 0x7FFFFFFF);
 			pmo.GiveInventory("ZPerkFist", 1);

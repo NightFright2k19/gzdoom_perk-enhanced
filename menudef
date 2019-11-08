@@ -1,7 +1,7 @@
 AddOptionMenu "OptionsMenu"
 {
 	StaticText ""
-	StaticText "PerK's Smooth Weapons Enhanced v3.0"
+	StaticText "PerK's Smooth Weapons Enhanced v3.1"
 	Submenu "$OPTMNU_ZPERK", "ZPerkMenu"
 }
 
