@@ -1,0 +1,7 @@
+version "4.1.3"
+
+#include "zscript/ZPerkMenu.zc"
+#include "zscript/ZPerkHandler.zc"
+
+const ZPERK_OVERLAYFLAGS = PSPF_ADDWEAPON | PSPF_ADDBOB | PSPF_POWDOUBLE | PSPF_CVARFAST;
+const PSP_BLACKGLOVES = 32768;

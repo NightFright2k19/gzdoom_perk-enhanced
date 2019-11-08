@@ -1,0 +1,24 @@
+[enu default]
+
+OPTMNU_ZPERK = "Customize PerK's Smooth Weapons Enhanced";
+
+ZPERKMNU_TITLE = "PerK's Smooth Weapons Enhanced Options";
+
+ZPERKMNU_BLACKGLOVES = "Black Gloves";
+ZPERKMNU_RESPONSIVE = "Responsive Weapons";
+ZPERKMNU_GLOVELESSFIST = "Gloveless Fist";
+ZPERKMNU_FLIPFIST = "Fist Handedness";
+ZPERKMNU_FLIPPISTOL = "Pistol Handedness";
+ZPERKMNU_SMOOTHPROJ = "Smooth Projectiles";
+
+// Generic reusable labels
+ZPERKMNU_LEFT = "Left";
+ZPERKMNU_RIGHT = "Right";
+
+// Help text
+ZPERKMNU_HELPTEXT_BLACKGLOVES = "Enable black gloves";
+ZPERKMNU_HELPTEXT_RESPONSIVE = "Faster weapon switching (enables faster firing for pistol and shotguns)";
+ZPERKMNU_HELPTEXT_GLOVELESSFIST = "Remove gloves from fists";
+ZPERKMNU_HELPTEXT_FLIPFIST = "Toggle punching handedness";
+ZPERKMNU_HELPTEXT_FLIPPISTOL = "Toggle pistol handedness";
+ZPERKMNU_HELPTEXT_SMOOTHPROJ = "Toggle smoothly animated projectiles";

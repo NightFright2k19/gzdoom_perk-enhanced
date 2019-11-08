@@ -1,0 +1,573 @@
+// Copyright 2019 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// Fist
+//
+//===========================================================================
+
+class ZPerkFist : Fist
+{
+	Default
+	{
+		Weapon.SlotNumber 1;
+	}
+
+	action void A_SwapSprites(void)
+	{
+		let psp = player.FindPSprite(PSP_WEAPON);
+		psp.Sprite = GetSpriteIndex("PKFS");
+		if (ZPerkHandler.CheckCVar('zperk_blackgloves', player)) psp.Sprite = GetSpriteIndex("BKFS");
+		if (ZPerkHandler.CheckCVar('zperk_glovelessfist', player)) psp.Sprite = GetSpriteIndex("PKF2");
+
+		if (!ZPerkHandler.CheckCVar('zperk_flipfist', player))
+		{
+			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, true);
+		}
+		else
+		{
+			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, false);
+		}
+	}
+
+	States
+	{
+	Select:
+		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Ready:
+		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
+		Loop;
+	Fire:
+		TNT1 A 0 A_SwapSprites();
+		"####" LBCD 1;
+		"####" E 2 A_Punch();
+		"####" FGHI 2;
+		"####" JKL 1;
+		"####" A 5 A_ReFire();
+		Goto Ready;
+
+	SwapSprites:
+		PKFS A 0; BKFS A 0; PKF2 A 0;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Chainsaw
+//
+//===========================================================================
+
+class ZPerkChainsaw : Chainsaw
+{
+	Default
+	{
+		Weapon.SlotNumber 1;
+		Decal "BulletChip";
+	}
+
+	action void A_SwapSprites(void)
+	{
+		let psp = player.FindPSprite(PSP_WEAPON);
+		psp.Sprite = GetSpriteIndex("SAWG");
+		if (ZPerkHandler.CheckCVar('zperk_blackgloves', player)) psp.Sprite = GetSpriteIndex("BAWG");
+	}
+
+	States
+	{
+	Select:
+		TNT1 C 0 A_PlaySound("weapons/sawup", 1);
+	SelectLoop:
+		TNT1 C 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		TNT1 C 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Ready:
+		TNT1 A 0;
+	ReadyLoop:
+		"####" C 0 A_PlaySound("weapons/sawidle", 1);
+		"####" CDEF 2 { A_SwapSprites(); A_WeaponReady(); }
+		Loop;
+	Fire:
+		TNT1 A 0 A_SwapSprites();
+		"####" A 2 A_Saw();
+		"####" B 2;
+		"####" A 2 A_Saw();
+		"####" B 2;
+		"####" B 0 A_ReFire();
+		Goto Ready;
+
+	SwapSprites:
+		SAWG A 0; BAWG A 0;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Pistol
+//
+//===========================================================================
+
+class ZPerkPistol : Pistol
+{
+	Default
+	{
+		Weapon.SlotNumber 2;
+		Decal "BulletChip";
+	}
+
+	action void A_SwapSprites(void)
+	{
+		let psp = player.FindPSprite(PSP_WEAPON);
+		if (!ZPerkHandler.CheckCVar('zperk_blackgloves', player))
+		{
+			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("PKPI");
+			else psp.Sprite = GetSpriteIndex("PKPX");
+		}
+		else
+		{
+			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("BKPI");
+			else psp.Sprite = GetSpriteIndex("BKPX");
+		}
+	}
+
+	States
+	{
+	Select:
+		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Ready:
+		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
+		Loop;
+	Fire:
+		TNT1 A 0 A_SwapSprites();
+		"####" A 4 { if (zperk_responsive) A_SetTics(0); }
+		"####" B 2 A_FirePistol();
+		"####" CEDB 2;
+		"####" A 0 { if (zperk_responsive) A_SetTics(4); }
+		"####" A 5 A_ReFire();
+		Goto Ready;
+	Flash:
+		PKPF B 2 Bright A_Light2();
+		PKPF A 1 Bright A_Light1();
+		Goto LightDone;
+
+	SwapSprites:
+		PKPI A 0; PKPX A 0; BKPI A 0; BKPX A 0;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Shotgun
+//
+//===========================================================================
+
+class ZPerkShotgun : Shotgun
+{
+	Default
+	{
+		Weapon.SlotNumber 3;
+		Decal "BulletChip";
+	}
+
+	action void A_SwapSprites(void)
+	{
+		let psp = player.FindPSprite(PSP_WEAPON);
+		psp.Sprite = GetSpriteIndex("PKSG");
+		if (ZPerkHandler.CheckCVar('zperk_blackgloves', player)) psp.Sprite = GetSpriteIndex("BKSG");
+	}
+
+	States
+	{
+	Select:
+		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Ready:
+		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
+		Loop;
+	Fire:
+		TNT1 A 0 A_SwapSprites();
+		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
+		"####" A 2 A_FireShotgun();
+		"####" A 5;
+		"####" B 2;
+		"####" C 1;
+		"####" D 2;
+		"####" E 2;
+		"####" F 3;
+		"####" G 1;
+		"####" H 3;
+		"####" GFEDCB 2;
+		"####" A 1;
+		"####" A 0 { if (zperk_responsive) A_SetTics(3); }
+		"####" A 1 A_ReFire();
+		Goto Ready;
+	Flash:
+		SHTF B 2 Bright A_Light2();
+		SHTF A 2 Bright A_Light1();
+		Goto LightDone;
+
+	SwapSprites:
+		PKSG A 0; BKSG A 0;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Chaingun
+//
+//===========================================================================
+
+class ZPerkChaingun : Chaingun
+{
+	Default
+	{
+		Weapon.SlotNumber 4;
+		Decal "BulletChip";
+	}
+
+	States
+	{
+	Select:
+		CHGG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		CHGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Fire:
+		PKCG A 1 A_FireCGun();
+		PKCG BCD 1;
+		PKCG A 1 A_FireCGun();
+		PKCG BCD 1;
+		PKCG B 0 A_ReFire();
+		PKCG A 1 A_WeaponReady();
+		PKCG BB 1 A_WeaponReady();
+		PKCG CCC 1 A_WeaponReady();
+		PKCG DDD 1 A_WeaponReady();
+		Goto Ready;
+	Flash:
+		TNT1 A 0;
+		TNT1 A 0 A_Jump(128, 4);
+		PKCF A 1 Bright A_Light1();
+		PKCF B 1 Bright A_Light2();
+		TNT1 A 2 A_Light1();
+		Goto LightDone;
+		PKCF C 1 Bright A_Light1();
+		PKCF D 1 Bright A_Light2();
+		TNT1 A 2 A_Light1();
+		Goto LightDone;
+	}
+}
+
+//===========================================================================
+//
+// Rocket Launcher
+//
+//===========================================================================
+
+class ZPerkRocketLauncher : RocketLauncher
+{
+	Default
+	{
+		Weapon.SlotNumber 5;
+	}
+
+	States
+	{
+	Select:
+		MISG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		MISG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Fire:
+		PKRL A 4 A_GunFlash();
+		PKRL B 2;
+		PKRL D 3 A_FireMissile();
+		PKRL C 3;
+		PKRL BE 2;
+		PKRL FG 2;
+		PKRL A 0 A_ReFire();
+		Goto Ready;
+	Flash:
+		PKRF A 3 Bright A_Light1();
+		PKRF B 2 Bright;
+		PKRF C 2 Bright A_Light2();
+		PKRF DE 3 Bright;
+		Goto LightDone;
+	}
+}
+
+class ZPerkRocket : Rocket
+{
+	Default
+	{
+		Decal "Scorch";
+	}
+
+	States
+	{
+	Death:
+		TNT1 A 0
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothDeath");
+			return A_Jump(256, "VanillaDeath");
+		}
+		Stop;
+	VanillaDeath:
+		Goto Super::Death;
+	SmoothDeath:
+		EXPL A 3 Bright A_Explode();
+		EXPL BCDEF 3 Bright;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Plasma Rifle
+//
+//===========================================================================
+
+class ZPerkPlasmaRifle : PlasmaRifle
+{
+	Default
+	{
+		Weapon.SlotNumber 6;
+	}
+
+	action void A_SwapSprites(void)
+	{
+		let psp = player.FindPSprite(PSP_WEAPON);
+		psp.Sprite = GetSpriteIndex("PKPL");
+		if (ZPerkHandler.CheckCVar('zperk_blackgloves', player)) psp.Sprite = GetSpriteIndex("BKPL");
+	}
+
+	States
+	{
+	Select:
+		PLSG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		PLSG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Fire:
+		PLSF C 1 Bright A_FirePlasma();
+		PLSF D 2 Bright;
+		TNT1 A 0 A_ReFire();
+		PLSF EFE 1 Bright;
+	FireReload:
+		TNT1 A 0 A_SwapSprites();
+		"####" BDEF 1;
+		"####" G 6;
+		"####" FEDC 2;
+		"####" B 1;
+		PKPL A 1;
+		Goto Ready;
+	Hold:
+		PLSF E 1 Bright A_FirePlasma();
+		PLSF FE 1 Bright;
+		TNT1 A 0
+		{
+			if ((player.cmd.buttons & BT_ATTACK)) return A_Jump(256, "Fire");
+			return A_Jump(256, "FireReload");
+		}
+		Stop;
+	Flash:
+		TNT1 A 1 A_Light1();
+		Goto LightDone;
+
+	SwapSprites:
+		PKPL A 0; BKPL A 0;
+		Stop;
+	}
+}
+
+class ZPerkPlasmaBall : PlasmaBall
+{
+	Default
+	{
+		Decal "PlasmaScorch";
+	}
+
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothSpawn");
+			return A_Jump(256, "VanillaSpawn");
+		}
+		Stop;
+	VanillaSpawn:
+		Goto Super::Spawn;
+	SmoothSpawn:
+		PLBL ABCD 2 Bright;
+		Loop;
+	Death:
+		TNT1 A 0
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothDeath");
+			return A_Jump(256, "VanillaDeath");
+		}
+		Stop;
+	VanillaDeath:
+		Goto Super::Death;
+	SmoothDeath:
+		PLXP ABCDEF 2 Bright;
+		PLXP GHIJKLMN 1 Bright;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// BFG9000
+//
+//===========================================================================
+
+class ZPerkBFG9000 : BFG9000
+{
+	Default
+	{
+		Weapon.SlotNumber 7;
+	}
+
+	States
+	{
+	Select:
+		BFGG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		Loop;
+	Deselect:
+		BFGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		Loop;
+	Fire:
+		BFGG A 20 A_BFGSound();
+		BFGG B 2 A_GunFlash();
+		BFGG CDEF 2 Bright;
+		BFGG F 0 A_FireBFG();
+		BFGG GHIHG 2;
+		BFGG A 12 A_ReFire();
+		Goto Ready;
+	Flash:
+		TNT1 AAAA 1 A_Light2();
+		TNT1 A 0 A_Light0();
+		Goto LightDone;
+	}
+}
+
+class ZPerkBFGBall : BFGBall
+{
+	Default
+	{
+		Decal "BFGLightning";
+	}
+
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothSpawn");
+			return A_Jump(256, "VanillaSpawn");
+		}
+		Stop;
+	VanillaSpawn:
+		Goto Super::Spawn;
+	SmoothSpawn:
+		BFBL ABCD 2 Bright;
+		Loop;
+	Death:
+		TNT1 A 0
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothDeath");
+			return A_Jump(256, "VanillaDeath");
+		}
+		Stop;
+	VanillaDeath:
+		Goto Super::Death;
+	SmoothDeath:
+		BFGB ABCDE 3 Bright;
+		BFGB F 1 Bright;
+		BFGB F 3 Bright A_BFGSpray();
+		BFGB GHIJK 5 Bright;
+		Stop;
+	}
+}
+
+class ZPerkBFGExtra : BFGExtra
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay
+		{
+			if (zperk_smoothprojectiles) return A_Jump(256, "SmoothDeath");
+			return A_Jump(256, "VanillaDeath");
+		}
+	VanillaDeath:
+		Goto Super::Spawn;
+	SmoothDeath:
+		BFEX AB 2 Bright;
+		BFEX CD 2 Bright;
+		BFEX EFGHIJKLMNO 2 Bright;
+		Stop;
+	}
+}
+
+//===========================================================================
+//
+// Berserk Pack
+//
+//===========================================================================
+
+class ZPerkBerserk : Berserk
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_GiveInventory("PowerStrength");
+		TNT1 A 0 HealThing(100, 0);
+		TNT1 A 0 A_SelectWeapon("ZPerkFist");
+		Stop;
+	}
+}

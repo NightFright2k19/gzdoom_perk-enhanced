@@ -1,0 +1,126 @@
+//===========================================================================
+//
+// Rocket
+//
+//===========================================================================
+
+object ZPerkRocket
+{
+	// Vanilla
+    frame MISLA { light ROCKET    }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+	
+	// Smooth
+	frame EXPLA { light ROCKET_X2 }
+	frame EXPLB { light ROCKET_X1 }
+	frame EXPLC { light ROCKET_X2 }
+	frame EXPLD { light ROCKET_X3 }
+	frame EXPLE { light ROCKET_X2 }
+	frame EXPLF { light ROCKET_X1 }
+}
+
+//===========================================================================
+//
+// Plasma
+//
+//===========================================================================
+
+object ZPerkPlasmaBall
+{
+	// Vanilla
+    frame PLSSA { light PLASMABALL }
+    frame PLSSB { light PLASMABALL }
+
+    frame PLSEA { light PLASMA_X1 }
+    frame PLSEB { light PLASMA_X2 }
+    frame PLSEC { light PLASMA_X2 }
+    frame PLSED { light PLASMA_X3 }
+    frame PLSEE { light PLASMA_X4 }
+	
+	// Smooth
+	frame PLBLA { light PLASMABALL }
+	frame PLBLB { light PLASMABALL }
+	frame PLBLC { light PLASMABALL }
+	frame PLBLD { light PLASMABALL }
+
+	frame PLXPA { light PLASMA_X1 }
+	frame PLXPB { light PLASMA_X1 }
+	frame PLXPC { light PLASMA_X2 }
+	frame PLXPD { light PLASMA_X2 }
+	frame PLXPE { light PLASMA_X3 }
+	frame PLXPF { light PLASMA_X3 }
+	frame PLXPG { light PLASMA_X3 }
+	frame PLXPH { light PLASMA_X4 }
+	frame PLXPI { light PLASMA_X4 } 
+	frame PLXPJ { light PLASMA_X4 }
+	frame PLXPK { light PLASMA_X4 }
+	frame PLXPL { light PLASMA_X4 }
+}
+
+//===========================================================================
+//
+// BFG
+//
+//===========================================================================
+
+object ZPerkBFGBall
+{
+	// Vanilla
+	frame BFS1A { light BFGBALL }
+	frame BFS1B { light BFGBALL }
+
+	frame BFE1A { light BFGBALL_X1 }
+	frame BFE1B { light BFGBALL_X2 }
+	frame BFE1C { light BFGBALL_X3 }
+	frame BFE1D { light BFGBALL_X1 }
+	frame BFE1E { light BFGBALL_X4 }
+	frame BFE1F { light BFGBALL_X5 }
+
+	// Smooth
+	frame BFBLA { light BFGBALL }
+	frame BFBLB { light BFGBALL }
+	frame BFBLC { light BFGBALL }
+	frame BFBLD { light BFGBALL }
+
+	frame BFGBA { light BFGBALL_X1 }
+	frame BFGBB { light BFGBALL_X2 }
+	frame BFGBC { light BFGBALL_X5 }
+	frame BFGBD { light BFGBALL_X1 }
+	frame BFGBE { light BFGBALL_X3 }
+	frame BFGBF { light BFGBALL_X5 }
+	frame BFGBG { light BFGBALL_X1 }
+	frame BFGBH { light BFGBALL_X4 }
+	frame BFGBI { light BFGBALL_X4 }
+	frame BFGBJ { light BFGBALL_X5 }
+	frame BFGBK { light BFGBALL_X5 }
+}
+
+
+object ZPerkBFGExtra
+{
+	// Vanilla
+	frame BFE2A { light BFGBALL    }
+	frame BFE2B { light BFGBALL_X1 }
+	frame BFE2C { light BFGBALL_X4 }
+	frame BFE2D { light BFGBALL_X5 }	
+
+	// Smooth
+	frame BFEXA { light BFGBALL    }
+	frame BFEXB { light BFGBALL_X1 }
+	frame BFEXC { light BFGBALL_X4 }
+	frame BFEXD { light BFGBALL_X5 }
+	frame BFEXE { light BFGBALL_X4 }
+	frame BFEXF { light BFGBALL_X5 }
+	frame BFEXG { light BFGBALL_X4 }
+	frame BFEXH { light BFGBALL_X5 }
+	frame BFEXI { light BFGBALL_X4 }
+	frame BFEXJ { light BFGBALL_X4 }
+	frame BFEXK { light BFGBALL_X4 }
+	frame BFEXL { light BFGBALL_X5 }
+	frame BFEXM { light BFGBALL_X4 }
+	frame BFEXN { light BFGBALL_X5 }
+	frame BFEXO { light BFGBALL_X5 }
+}

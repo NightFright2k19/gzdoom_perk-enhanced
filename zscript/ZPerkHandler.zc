@@ -1,0 +1,107 @@
+// Copyright 2019 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+class ZPerkHandler : EventHandler
+{
+	//===========================================================================
+	//
+	// Handle player spawn
+	//
+	//===========================================================================
+
+	override void PlayerEntered(PlayerEvent e)
+	{
+		PlayerPawn pmo = players[e.PlayerNumber].mo;
+		if (!pmo) return;
+		SetupPlayer(pmo);
+	}
+
+	override void PlayerRespawned(PlayerEvent e)
+	{
+		PlayerPawn pmo = players[e.PlayerNumber].mo;
+		if (!pmo) return;
+		SetupPlayer(pmo);
+	}
+
+	//===========================================================================
+	//
+	// Give smooth weapons to spawned player
+	//
+	//===========================================================================
+
+	void SetupPlayer(PlayerPawn pmo)
+	{
+		if (pmo.FindInventory("Pistol"))
+		{
+			pmo.TakeInventory("Pistol", 0x7FFFFFFF);
+			pmo.GiveInventory("ZPerkPistol", 1);
+			pmo.TakeInventory("Clip", 20);
+		}
+
+		if (pmo.FindInventory("Fist"))
+		{
+			pmo.TakeInventory("Fist", 0x7FFFFFFF);
+			pmo.GiveInventory("ZPerkFist", 1);
+		}
+	}
+
+	//===========================================================================
+	//
+	// Check CVar bool value
+	//
+	//===========================================================================
+
+	static bool CheckCVar(Name CVarName, PlayerInfo player)
+	{
+		if (!player) return false;
+		CVar cv = CVar.GetCVar(CVarName, player);
+		if (!cv) return false;
+		return cv.GetBool();
+	}
+
+	//===========================================================================
+	//
+	// Replace spawned weapons in the world
+	//
+	//===========================================================================
+
+	override void CheckReplacement(ReplaceEvent e)
+	{
+		if		(e.Replacee == "Fist")				e.Replacement = "ZPerkFist";
+		else if (e.Replacee == "Chainsaw")			e.Replacement = "ZPerkChainsaw";
+		else if (e.Replacee == "Pistol")			e.Replacement = "ZPerkPistol";
+		else if (e.Replacee == "Shotgun")			e.Replacement = "ZPerkShotgun";
+		else if (e.Replacee == "Chaingun")			e.Replacement = "ZPerkChaingun";
+		else if (e.Replacee == "RocketLauncher")	e.Replacement = "ZPerkRocketLauncher";
+		else if (e.Replacee == "PlasmaRifle")		e.Replacement = "ZPerkPlasmaRifle";
+		else if (e.Replacee == "BFG9000")			e.Replacement = "ZPerkBFG9000";
+		else if (e.Replacee == "Berserk")			e.Replacement = "ZPerkBerserk";
+		else if (e.Replacee == "Rocket")			e.Replacement = "ZPerkRocket";
+		else if (e.Replacee == "PlasmaBall")		e.Replacement = "ZPerkPlasmaBall";
+		else if (e.Replacee == "BFGBall")			e.Replacement = "ZPerkBFGBall";
+		else if (e.Replacee == "BFGExtra")			e.Replacement = "ZPerkBFGExtra";
+	}
+}

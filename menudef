@@ -1,0 +1,28 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText ""
+	StaticText "PerK's Smooth Weapons Enhanced v3.0"
+	Submenu "$OPTMNU_ZPERK", "ZPerkMenu"
+}
+
+OptionMenu "ZPerkMenu"
+{
+	Class "ZPerkMenu"
+	Title "$ZPERKMNU_TITLE"
+	Position -32
+
+	StaticText ""
+
+	ZPerkOption "$ZPERKMNU_BLACKGLOVES",	"$ZPERKMNU_HELPTEXT_BLACKGLOVES",		"zperk_blackgloves",		"YesNo"
+	ZPerkOption "$ZPERKMNU_RESPONSIVE",		"$ZPERKMNU_HELPTEXT_RESPONSIVE",		"zperk_responsive",			"YesNo"
+	ZPerkOption "$ZPERKMNU_GLOVELESSFIST",	"$ZPERKMNU_HELPTEXT_GLOVELESSFIST",		"zperk_glovelessfist",		"YesNo"	
+	ZPerkOption "$ZPERKMNU_FLIPFIST",		"$ZPERKMNU_HELPTEXT_FLIPFIST",			"zperk_flipfist",			"RightLeft"
+	ZPerkOption "$ZPERKMNU_FLIPPISTOL",		"$ZPERKMNU_HELPTEXT_FLIPPISTOL",		"zperk_flippistol",			"RightLeft"
+	ZPerkOption "$ZPERKMNU_SMOOTHPROJ",		"$ZPERKMNU_HELPTEXT_SMOOTHPROJ",		"zperk_smoothprojectiles",	"YesNo"
+}
+
+OptionValue "RightLeft"
+{
+	0, "$ZPERKMNU_RIGHT"
+	1, "$ZPERKMNU_LEFT"
+}
