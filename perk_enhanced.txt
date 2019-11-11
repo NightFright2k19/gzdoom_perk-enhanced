@@ -1,10 +1,10 @@
 ===========================================================================
-Advanced engine needed : ZDoom/GZDoom
+Advanced engine needed : GZDoom v4.1.3 (or newer)
 Primary purpose : Singleplayer/Multiplayer
 ===========================================================================
-Title : PerK's Smoother Weapon Animations Enhanced v3.1
+Title : PerK's Smoother Weapon Animations Enhanced v3.1.1
 Filename : PERK_ENHANCED.PK3 (formerly PK_ANIM1.WAD / PK_ANIM2.WAD)
-Release date : November 8, 2019
+Release date : November 11, 2019
 Author : NightFright / Nash
 Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
                         Arachno Music Packs for Doom, Doom II et al.
@@ -37,14 +37,17 @@ Credits to :            id Software (Doom and all its wonderful art)
 Additional Credits to:  Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
                                            Z86 Chaingun, extra Plasmagun frames & code
                         Blue Shadow ...... Plasmagun code tweaks
+			DenisBelmondo .... Animation tweaks
                         Gifty ............ Smooth rocket, plasma and BFG projectile sprites
                         IcyFreezy ........ Black gloves from blakglov2.wad
                         JoeyTD ........... Flipped Pistol with arm
+			m8f .............. Accurate pistol option
                         Minigunner ....... "Polished Skull" Shotgun muzzleflash
                         Nash Muhandes  ... Full mod overhaul, ZScript rewrite
                         NeuralStunner .... PerK fists with gloves
                         Nevander ......... Dynamic light fix for player, code tweaks
                         Phi108 ........... ZDoom DECORATE
+			Scuba Steve ...... Improved shotgun sprites
                         Void Weaver ...... Help with sound code for "multi-path" Chainsaw
                         Z86 .............. Smoother Chainsaw, SSG frame fix, Chaingun
                                            rotation/animation fix, smooth BFG
@@ -94,6 +97,10 @@ content in this file to allow further distribution.
 
 
 * Changelog *
+
+Version 3.1.1 (Nov 11, 2019)
+----------------------------
+- Added option for accurate pistol (default: off)
 
 Version 3.1 (Nov 8, 2019)
 -------------------------
