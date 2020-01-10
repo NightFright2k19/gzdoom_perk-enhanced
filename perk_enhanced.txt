@@ -2,9 +2,9 @@
 Advanced engine needed : GZDoom v4.1.3 (or newer)
 Primary purpose : Singleplayer/Multiplayer
 ===========================================================================
-Title : PerK's Smoother Weapon Animations Enhanced v3.1.1
+Title : PerK's Smoother Weapon Animations Enhanced v3.1.2
 Filename : PERK_ENHANCED.PK3 (formerly PK_ANIM1.WAD / PK_ANIM2.WAD)
-Release date : November 11, 2019
+Release date : January 10, 2020
 Author : NightFright / Nash
 Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
                         Arachno Music Packs for Doom, Doom II et al.
@@ -97,6 +97,10 @@ content in this file to allow further distribution.
 
 
 * Changelog *
+
+Version 3.1.2 (Jan 10, 2020)
+----------------------------
+- Properly converted all graphics to Doom palette
 
 Version 3.1.1 (Nov 11, 2019)
 ----------------------------
