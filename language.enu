@@ -17,6 +17,7 @@ ZPERKMNU_FLIPPISTOL     = "Pistol";
 ZPERKMNU_SMOOTHPROJ     = "Smooth projectiles";
 ZPERKMNU_ACCURATEPISTOL = "Accurate pistol";
 ZPERKMNU_FISTLESSBERSK  = "Fistless berserk";
+ZPERKMNU_ACCURATEWEAPONS = "Fire at crosshair";
 
 // Generic reusable labels
 ZPERKMNU_LEFT  = "Left";
@@ -31,3 +32,4 @@ ZPERKMNU_HELPTEXT_FLIPPISTOL     = "Toggle pistol handedness (default: left)";
 ZPERKMNU_HELPTEXT_SMOOTHPROJ     = "Toggle smoothly animated projectiles";
 ZPERKMNU_HELPTEXT_ACCURATEPISTOL = "Disable pistol shot dispersal";
 ZPERKMNU_HELPTEXT_FISTLESSBERSK  = "Do not switch to fists when entering berserk mode";
+ZPERKMNU_HELPTEXT_ACCURATEWEAPONS = "Weapons fire where crosshair is";

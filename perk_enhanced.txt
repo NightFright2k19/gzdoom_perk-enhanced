@@ -41,16 +41,17 @@ Additional Credits to:  Nash Muhandes  ... Full mod overhaul, ZScript rewrite
                         Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
                                            Z86 Chaingun, extra Plasmagun frames & code
                         Blue Shadow ...... Plasmagun code tweaks
-			DenisBelmondo .... Animation tweaks
+                        DenisBelmondo .... Animation tweaks
                         Gifty ............ Smooth rocket, plasma and BFG projectile sprites
                         IcyFreezy ........ Black gloves from blakglov2.wad
+                        Ivory Duke ....... Accurate Projectile Weapon firing code
                         JoeyTD ........... Flipped Pistol with arm
-			m8f .............. Accurate pistol option
+                        m8f .............. Accurate pistol option
                         Minigunner ....... "Polished Skull" Shotgun muzzleflash
                         NeuralStunner .... PerK fists with gloves
                         Nevander ......... Dynamic light fix for player, code tweaks
                         Phi108 ........... ZDoom DECORATE
-			Scuba Steve ...... Improved shotgun sprites
+                        Scuba Steve ...... Improved shotgun sprites
                         Void Weaver ...... Help with sound code for "multi-path" Chainsaw
                         Z86 .............. Smoother Chainsaw, SSG frame fix, Chaingun
                                            rotation/animation fix, smooth BFG

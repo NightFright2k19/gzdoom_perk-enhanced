@@ -1,0 +1,56 @@
+mixin class AccurateProjectileWeapon
+{
+	action double calculateAccuratePitch()
+	{
+		if (!zperk_accurateweapons)
+		{
+			return 0;
+		}
+
+		let pawn = PlayerPawn(self);
+		double zOffset = -pawn.attackZOffset;
+		double accurateAngle, accuratePitch;
+		[accurateAngle, accuratePitch] = AnglePitchCalculator(0, zOffset);
+		return AccuratePitch;
+	}
+
+	action double, double AnglePitchCalculator(double XYOffset, double ZOffset)
+	{
+		FLineTraceData CrossHairProjection;
+		LineTrace(Angle, 10000, Pitch, TRF_THRUACTORS, player.ViewHeight, data: CrossHairProjection);
+
+		Double AccurateAngle = 0;
+		Double AccuratePitch = 0;
+
+		if(XYOffset) { AccurateAngle = VectorAngle(CrossHairProjection.Distance, XYOffset); }
+		if(ZOffset) { AccuratePitch = VectorAngle(CrossHairProjection.Distance, ZOffset); }
+
+		return AccurateAngle, AccuratePitch;
+	}
+}
+
+mixin class AccurateHitscanWeapon
+{
+	double oldOffset;
+	bool   isAttackOffsetAccurate;
+
+	action bool toggleAccurate()
+	{
+		if (!zperk_accurateweapons)
+		{
+			return (invoker.isAttackOffsetAccurate = !invoker.isAttackOffsetAccurate);
+		}
+
+		let pawn = PlayerPawn(self);
+
+		if (!invoker.isAttackOffsetAccurate)
+		{
+			invoker.oldOffset  = pawn.attackZOffset;
+			pawn.attackZOffset = pawn.viewHeight - pawn.height / 2;
+			return (invoker.isAttackOffsetAccurate = true);
+		}
+
+		pawn.attackZOffset = invoker.oldOffset;
+		return (invoker.isAttackOffsetAccurate = false);
+	}
+}

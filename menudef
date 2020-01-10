@@ -27,6 +27,7 @@ OptionMenu "ZPerkMenu"
 	StaticText "$ZPERKMNU_CATEGORY3", gold
 	ZPerkOption "$ZPERKMNU_RESPONSIVE",			"$ZPERKMNU_HELPTEXT_RESPONSIVE",		"zperk_responsive",			"YesNo"
 	ZPerkOption "$ZPERKMNU_ACCURATEPISTOL",		"$ZPERKMNU_HELPTEXT_ACCURATEPISTOL",	"zperk_accuratepistol",		"YesNo"
+	ZPerkOption "$ZPERKMNU_ACCURATEWEAPONS",	"$ZPERKMNU_HELPTEXT_ACCURATEWEAPONS",		"zperk_accurateweapons",		"YesNo"
 	StaticText ""
 	StaticText "$ZPERKMNU_CATEGORY4", gold
 	ZPerkOption "$ZPERKMNU_SMOOTHPROJ",			"$ZPERKMNU_HELPTEXT_SMOOTHPROJ",		"zperk_smoothprojectiles",	"YesNo"

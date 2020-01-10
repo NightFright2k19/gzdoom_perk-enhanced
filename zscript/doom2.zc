@@ -32,6 +32,8 @@
 
 class ZPerkSuperShotgun : SuperShotgun
 {
+	mixin AccurateHitscanWeapon;
+
 	Default
 	{
 		Weapon.SlotNumber 3;
@@ -59,8 +61,7 @@ class ZPerkSuperShotgun : SuperShotgun
 	Fire:
 		TNT1 A 0 A_SwapSprites();
 		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
-
-		"####" A 5 A_FireShotgun2();
+		"####" A 5 { while(toggleAccurate()) A_FireShotgun2(); }
 		"####" "#" 0 { if (zperk_responsive) A_SetTics(3); }
 		"####" BC 3;
 		"####" D 3;

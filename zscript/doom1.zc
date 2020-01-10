@@ -24,6 +24,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#include "zscript/accurate.zc"
+
 //===========================================================================
 //
 // Fist
@@ -140,6 +142,8 @@ class ZPerkChainsaw : Chainsaw
 
 class ZPerkPistol : Pistol
 {
+	mixin AccurateHitscanWeapon;
+
 	Default
 	{
 		Weapon.SlotNumber 2;
@@ -189,7 +193,7 @@ class ZPerkPistol : Pistol
 	Fire:
 		TNT1 A 0 A_SwapSprites();
 		"####" A 4 { if (zperk_responsive) A_SetTics(0); }
-		"####" B 2 A_ZFirePistol();
+		"####" B 2 { while(toggleAccurate()) A_ZFirePistol(); }
 		"####" CEDB 2;
 		"####" A 0 { if (zperk_responsive) A_SetTics(4); }
 		"####" A 5 A_ReFire();
@@ -213,6 +217,8 @@ class ZPerkPistol : Pistol
 
 class ZPerkShotgun : Shotgun
 {
+	mixin AccurateHitscanWeapon;
+
 	Default
 	{
 		Weapon.SlotNumber 3;
@@ -240,7 +246,7 @@ class ZPerkShotgun : Shotgun
 	Fire:
 		TNT1 A 0 A_SwapSprites();
 		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
-		"####" A 2 A_FireShotgun();
+		"####" A 2 { while(toggleAccurate()) A_FireShotgun(); }
 		"####" A 5;
 		"####" B 2;
 		"####" C 1;
@@ -273,6 +279,8 @@ class ZPerkShotgun : Shotgun
 
 class ZPerkChaingun : Chaingun
 {
+	mixin AccurateHitscanWeapon;
+
 	Default
 	{
 		Weapon.SlotNumber 4;
@@ -288,9 +296,9 @@ class ZPerkChaingun : Chaingun
 		CHGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
 		Loop;
 	Fire:
-		PKCG A 1 A_FireCGun();
+		PKCG A 1 { while(toggleAccurate()) A_FireCGun(); }
 		PKCG BCD 1;
-		PKCG A 1 A_FireCGun();
+		PKCG A 1 { while(toggleAccurate()) A_FireCGun(); }
 		PKCG BCD 1;
 		PKCG B 0 A_ReFire();
 		PKCG A 1 A_WeaponReady();
@@ -320,6 +328,13 @@ class ZPerkChaingun : Chaingun
 
 class ZPerkRocketLauncher : RocketLauncher
 {
+	mixin AccurateProjectileWeapon;
+
+	action void A_ZFireMissile()
+	{
+		A_FireProjectile("Rocket", pitch: calculateAccuratePitch());
+	}
+
 	Default
 	{
 		Weapon.SlotNumber 5;
@@ -336,7 +351,7 @@ class ZPerkRocketLauncher : RocketLauncher
 	Fire:
 		PKRL A 4 A_GunFlash();
 		PKRL B 2;
-		PKRL D 3 A_FireMissile();
+		PKRL D 3 A_ZFireMissile();
 		PKRL C 3;
 		PKRL BE 2;
 		PKRL FG 2;
@@ -384,6 +399,16 @@ class ZPerkRocket : Rocket
 
 class ZPerkPlasmaRifle : PlasmaRifle
 {
+	mixin AccurateProjectileWeapon;
+
+	action void A_ZFirePlasma()
+	{
+		double oldPitch = pitch;
+		pitch += calculateAccuratePitch();
+		A_FirePlasma();
+		pitch = oldPitch;
+	}
+
 	Default
 	{
 		Weapon.SlotNumber 6;
@@ -405,7 +430,7 @@ class ZPerkPlasmaRifle : PlasmaRifle
 		PLSG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
 		Loop;
 	Fire:
-		PLSF C 1 Bright { A_FirePlasma(); A_Light1(); }
+		PLSF C 1 Bright { A_ZFirePlasma(); A_Light1(); }
 		PLSF D 2 Bright;
 		TNT1 A 0 A_ReFire();
 		PLSF EFE 1 Bright;
@@ -416,7 +441,7 @@ class ZPerkPlasmaRifle : PlasmaRifle
 		"####" DCB 1;
 		Goto Ready;
 	Hold:
-		PLSF E 1 Bright { A_FirePlasma(); A_Light1(); }
+		PLSF E 1 Bright { A_ZFirePlasma(); A_Light1(); }
 		PLSF FE 1 Bright;
 		TNT1 A 0
 		{
@@ -476,6 +501,16 @@ class ZPerkPlasmaBall : PlasmaBall
 
 class ZPerkBFG9000 : BFG9000
 {
+	mixin AccurateProjectileWeapon;
+
+	action void A_ZFireBFG()
+	{
+		double oldPitch = pitch;
+		pitch += calculateAccuratePitch();
+		A_FireBFG();
+		pitch = oldPitch;
+	}
+
 	Default
 	{
 		Weapon.SlotNumber 7;
@@ -493,7 +528,7 @@ class ZPerkBFG9000 : BFG9000
 		BFGG A 20 A_BFGSound();
 		BFGG B 2 A_GunFlash();
 		BFGG CDEF 2 Bright;
-		BFGG F 0 A_FireBFG();
+		BFGG F 0 A_ZFireBFG();
 		BFGG GHIHG 2;
 		BFGG A 12 A_ReFire();
 		Goto Ready;
