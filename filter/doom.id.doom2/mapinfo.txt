@@ -1,4 +1,0 @@
-GameInfo
-{
-	AddEventHandlers = "ZPerkDoom2Handler"
-}
