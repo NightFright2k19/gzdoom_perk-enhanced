@@ -579,7 +579,7 @@ class ZPerkBerserk : Berserk
 	Pickup:
 		TNT1 A 0 A_GiveInventory("PowerStrength");
 		TNT1 A 0 HealThing(100, 0);
-		TNT1 A 0 A_SelectWeapon("ZPerkFist");
+		TNT1 A 0 { if (!zperk_fistlessberserk) A_SelectWeapon("ZPerkFist"); }
 		Stop;
 	}
 }

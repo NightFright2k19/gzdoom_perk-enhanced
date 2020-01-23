@@ -21,6 +21,7 @@ Description : Per Kristian's mod for improved Doom weapon animations is brought
 		- Faster weapon switching (optional)
 		- Smoothly animated rockets, plasma and BFG projectiles (optional)
 		- Pistol without shot dispersal (optional)
+                - Entering berserk mode without switching to fists (optional)
  
               Additionally, following improvements have been implemented
               compared to the original PerK mod:
@@ -103,6 +104,7 @@ content in this file to allow further distribution.
 Version 3.1.4 (Jan 23, 2020)
 ----------------------------
 - Mod menu relocated to: Player Setup > Smooth Weapons Enhanced
+- Added option for fistless berserk mode
 - Improved SSG animations (closer to Nevander's 2017 release)
 - Changed all CVARs to "No"/"Left" by default (for vanilla visuals) 
 - Updated doom1.zc with GZD 4.3.0 code (A_PlaySound replaced by A_StartSound)
