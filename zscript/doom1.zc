@@ -42,15 +42,15 @@ class ZPerkFist : Fist
 		let psp = player.FindPSprite(PSP_WEAPON);
 		psp.Sprite = GetSpriteIndex("PKFS");
 		if (ZPerkHandler.CheckCVar('zperk_blackgloves', player)) psp.Sprite = GetSpriteIndex("BKFS");
-		if (ZPerkHandler.CheckCVar('zperk_glovelessfist', player)) psp.Sprite = GetSpriteIndex("PKF2");
+		if (!ZPerkHandler.CheckCVar('zperk_glovedfist', player)) psp.Sprite = GetSpriteIndex("PKF2");
 
 		if (!ZPerkHandler.CheckCVar('zperk_flipfist', player))
 		{
-			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, true);
+			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, false);
 		}
 		else
 		{
-			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, false);
+			A_OverlayFlags(PSP_WEAPON, PSPF_FLIP | PSPF_MIRROR, true);
 		}
 	}
 
@@ -104,7 +104,7 @@ class ZPerkChainsaw : Chainsaw
 	States
 	{
 	Select:
-		TNT1 C 0 A_PlaySound("weapons/sawup", 1);
+		TNT1 C 0 A_StartSound("weapons/sawup", 1);
 	SelectLoop:
 		TNT1 C 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
 		Loop;
@@ -114,7 +114,7 @@ class ZPerkChainsaw : Chainsaw
 	Ready:
 		TNT1 A 0;
 	ReadyLoop:
-		"####" C 0 A_PlaySound("weapons/sawidle", 1);
+		"####" C 0 A_StartSound("weapons/sawidle", 1);
 		"####" CDEF 2 { A_SwapSprites(); A_WeaponReady(); }
 		Loop;
 	Fire:
@@ -151,7 +151,7 @@ class ZPerkPistol : Pistol
 		if (zperk_accuratepistol)
 		{
 			A_FireBullets (0, 0, 1, 5, "BulletPuff");
-			A_PlaySound("weapons/pistol", CHAN_WEAPON);
+			A_StartSound("weapons/pistol", CHAN_WEAPON);
 			A_GunFlash();
 		}
 		else
@@ -165,13 +165,13 @@ class ZPerkPistol : Pistol
 		let psp = player.FindPSprite(PSP_WEAPON);
 		if (!ZPerkHandler.CheckCVar('zperk_blackgloves', player))
 		{
-			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("PKPI");
-			else psp.Sprite = GetSpriteIndex("PKPX");
+			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("PKPX");
+			else psp.Sprite = GetSpriteIndex("PKPI");
 		}
 		else
 		{
-			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("BKPI");
-			else psp.Sprite = GetSpriteIndex("BKPX");
+			if (!ZPerkHandler.CheckCVar('zperk_flippistol', player)) psp.Sprite = GetSpriteIndex("BKPX");
+			else psp.Sprite = GetSpriteIndex("BKPI");
 		}
 	}
 

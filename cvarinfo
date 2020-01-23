@@ -1,7 +1,8 @@
 user bool zperk_blackgloves = false;
-server bool zperk_responsive = false;
-user bool zperk_flippistol = true;
-user bool zperk_glovelessfist = true;
-user bool zperk_flipfist = true;
-server bool zperk_smoothprojectiles = false;
+user bool zperk_flipfist = false;
+user bool zperk_flippistol = false;
+user bool zperk_glovedfist = false;
 server bool zperk_accuratepistol = false;
+server bool zperk_responsive = false;
+server bool zperk_smoothprojectiles = false;
+

@@ -2,9 +2,9 @@
 Advanced engine needed : GZDoom v4.3.0 (or newer)
 Primary purpose : Singleplayer/Multiplayer
 ===========================================================================
-Title : PerK's Smoother Weapon Animations Enhanced v3.1.3
+Title : Smooth Weapons Enhanced v3.1.4
 Filename : PERK_ENHANCED.PK3 (formerly PK_ANIM1.WAD / PK_ANIM2.WAD)
-Release date : January 10, 2020
+Release date : January 23, 2020
 Author : NightFright / Nash
 Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
                         Arachno Music Packs for Doom, Doom II et al.
@@ -12,29 +12,32 @@ Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
                         Widescreen HUDs for Doom II PWADs
                         Fullscreen Statusbar Mod
 
-Description : If you know the mod by Per Kristian for the Doom weapons to
-              improve their animations, then you can imagine what this is 
-              about: It's almost the same, but the Doomguy's gloves can also
-              be black if you want (to match the Doom box cover art).
+Description : Per Kristian's mod for improved Doom weapon animations is brought
+              to a new level! Choose between many neat new options through an
+              ingame menu (Player Setup > Smooth Weapons Enhanced):
+		- Standard (brown) or black gloves
+		- Fist with or without gloves
+		- Left- or right-handedness for fist and pistol
+		- Faster weapon switching (optional)
+		- Smoothly animated rockets, plasma and BFG projectiles (optional)
+		- Pistol without shot dispersal (optional)
  
-              Additionally, the following improvements have been implemented
+              Additionally, following improvements have been implemented
               compared to the original PerK mod:
-                - Fists: now also with gloves (optional)
                 - Pistol: light from the left (like original), visible arm
-                  Note: Fist and pistol handedness can be toggled in the menu
-                - Chainsaw: has more idle frames
+                - Chainsaw: more idle frames
                 - Shotgun: improved muzzleflash, reload frames optimized
-                - Super Shotgun: missing hand for one frame added,
-                  minor tweaks for two frames
+                - Super Shotgun: missing hand for one frame added, two frames tweaked
                 - Chaingun: rotation/firing behavior fixed
                 - Plasmagun: two additional frames while firing
-                - BFG 9000: now also has smooth animations
-                - Smooth sprites for the rocket explosion, plasma and BFG shots
+                - BFG 9000: now also with smooth animations
 
 Credits to :            id Software (Doom and all its wonderful art)
                         Per Kristian (creator of the original animations mod)
 
-Additional Credits to:  Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
+Additional Credits to:  Nash Muhandes  ... Full mod overhaul, ZScript rewrite
+
+                        Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
                                            Z86 Chaingun, extra Plasmagun frames & code
                         Blue Shadow ...... Plasmagun code tweaks
 			DenisBelmondo .... Animation tweaks
@@ -43,7 +46,6 @@ Additional Credits to:  Blox ............. Improved gloves, SG/SSG frame tweaks,
                         JoeyTD ........... Flipped Pistol with arm
 			m8f .............. Accurate pistol option
                         Minigunner ....... "Polished Skull" Shotgun muzzleflash
-                        Nash Muhandes  ... Full mod overhaul, ZScript rewrite
                         NeuralStunner .... PerK fists with gloves
                         Nevander ......... Dynamic light fix for player, code tweaks
                         Phi108 ........... ZDoom DECORATE
@@ -97,6 +99,13 @@ content in this file to allow further distribution.
 
 
 * Changelog *
+
+Version 3.1.4 (Jan 23, 2020)
+----------------------------
+- Mod menu relocated to: Player Setup > Smooth Weapons Enhanced
+- Improved SSG animations (closer to Nevander's 2017 release)
+- Changed all CVARs to "No"/"Left" by default (for vanilla visuals) 
+- Updated doom1.zc with GZD 4.3.0 code (A_PlaySound replaced by A_StartSound)
 
 Version 3.1.3 (Jan 10, 2020)
 ----------------------------

@@ -7,7 +7,7 @@
 object ZPerkRocket
 {
 	// Vanilla
-    frame MISLA { light ROCKET    }
+    frame MISLA { light ROCKET }
 
     frame MISLB { light ROCKET_X1 }
     frame MISLC { light ROCKET_X2 }
@@ -102,13 +102,13 @@ object ZPerkBFGBall
 object ZPerkBFGExtra
 {
 	// Vanilla
-	frame BFE2A { light BFGBALL    }
+	frame BFE2A { light BFGBALL }
 	frame BFE2B { light BFGBALL_X1 }
 	frame BFE2C { light BFGBALL_X4 }
 	frame BFE2D { light BFGBALL_X5 }	
 
 	// Smooth
-	frame BFEXA { light BFGBALL    }
+	frame BFEXA { light BFGBALL }
 	frame BFEXB { light BFGBALL_X1 }
 	frame BFEXC { light BFGBALL_X4 }
 	frame BFEXD { light BFGBALL_X5 }

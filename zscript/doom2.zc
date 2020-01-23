@@ -61,14 +61,14 @@ class ZPerkSuperShotgun : SuperShotgun
 		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
 		"####" A 7 A_FireShotgun2();
 		"####" "#" 0 { if (zperk_responsive) A_SetTics(3); }
-		"####" BCD 4;
-		"####" E 3 A_CheckReload();
+		"####" BCD 2;
+		"####" E 4 A_CheckReload();
 		"####" F 4 A_OpenShotgun2();
 		"####" GHIJK 2;
-		"####" L 2 A_LoadShotgun2();
+		"####" L 5 A_LoadShotgun2();
 		"####" MNOPQ 2;
 		"####" R 4 A_CloseShotgun2();
-		"####" S 3;
+		"####" S 4;
 		"####" A 5 A_ReFire();
 		Goto Ready;
 	Flash:

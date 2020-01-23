@@ -1,2 +1,2 @@
 # perk_enhanced
-PerK's Smoother Weapon Animations Enhanced
+Smooth Weapons Enhanced (based on Per Kristian's "Smoother Weapon Animations")
