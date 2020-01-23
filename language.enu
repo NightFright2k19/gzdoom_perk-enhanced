@@ -1,28 +1,33 @@
 [enu default]
 
-OPTMNU_ZPERK = "Smooth Weapons Enhanced";
+// Titles
+OPTMNU_ZPERK       = "Smooth Weapons Enhanced";
+ZPERKMNU_CATEGORY1 = "Gloves";
+ZPERKMNU_CATEGORY2 = "Handedness";
+ZPERKMNU_CATEGORY3 = "Weapon tweaks";
+ZPERKMNU_CATEGORY4 = "Miscellaneous";
+ZPERKMNU_VERSION   = "Version 3.2";
 
-ZPERKMNU_TITLE = "Smooth Weapons Enhanced: Options";
-
-ZPERKMNU_BLACKGLOVES = "Black gloves";
-ZPERKMNU_RESPONSIVE = "Responsive weapons";
-ZPERKMNU_GLOVEDFIST = "Fist with gloves";
-ZPERKMNU_FLIPFIST = "Fist handedness";
-ZPERKMNU_FLIPPISTOL = "Pistol handedness";
-ZPERKMNU_SMOOTHPROJ = "Smooth projectiles";
+// Menu options
+ZPERKMNU_BLACKGLOVES    = "Black color";
+ZPERKMNU_RESPONSIVE     = "Responsive weapons";
+ZPERKMNU_GLOVEDFIST     = "Cover fists";
+ZPERKMNU_FLIPFIST       = "Fists";
+ZPERKMNU_FLIPPISTOL     = "Pistol";
+ZPERKMNU_SMOOTHPROJ     = "Smooth projectiles";
 ZPERKMNU_ACCURATEPISTOL = "Accurate pistol";
-ZPERKMNU_FISTLESSBERSK = "Fistless berserk";
+ZPERKMNU_FISTLESSBERSK  = "Fistless berserk";
 
 // Generic reusable labels
-ZPERKMNU_LEFT = "Left";
+ZPERKMNU_LEFT  = "Left";
 ZPERKMNU_RIGHT = "Right";
 
 // Help text
-ZPERKMNU_HELPTEXT_BLACKGLOVES = "Enable black gloves";
-ZPERKMNU_HELPTEXT_RESPONSIVE = "Faster weapon switching (faster firing for pistol and shotguns)";
-ZPERKMNU_HELPTEXT_GLOVEDFIST = "Add gloves to fists";
-ZPERKMNU_HELPTEXT_FLIPFIST = "Toggle punching handedness (default: left)";
-ZPERKMNU_HELPTEXT_FLIPPISTOL = "Toggle pistol handedness (default: left)";
-ZPERKMNU_HELPTEXT_SMOOTHPROJ = "Toggle smoothly animated projectiles";
+ZPERKMNU_HELPTEXT_BLACKGLOVES    = "Enable black gloves";
+ZPERKMNU_HELPTEXT_RESPONSIVE     = "Faster weapon switching (faster firing for pistol and shotguns)";
+ZPERKMNU_HELPTEXT_GLOVEDFIST     = "Add gloves to fists";
+ZPERKMNU_HELPTEXT_FLIPFIST       = "Toggle punching handedness (default: left)";
+ZPERKMNU_HELPTEXT_FLIPPISTOL     = "Toggle pistol handedness (default: left)";
+ZPERKMNU_HELPTEXT_SMOOTHPROJ     = "Toggle smoothly animated projectiles";
 ZPERKMNU_HELPTEXT_ACCURATEPISTOL = "Disable pistol shot dispersal";
-ZPERKMNU_HELPTEXT_FISTLESSBERSK = "Do not switch to fists when entering berserk mode";
+ZPERKMNU_HELPTEXT_FISTLESSBERSK  = "Do not switch to fists when entering berserk mode";

@@ -13,19 +13,26 @@ OptionValue "RightLeft"
 OptionMenu "ZPerkMenu"
 {
 	Class "ZPerkMenu"
-	Title "$ZPERKMNU_TITLE"
+	Title "$OPTMNU_ZPERK"
 	Position -32
 	StaticText ""
+	StaticText "$ZPERKMNU_CATEGORY1", gold
 	ZPerkOption "$ZPERKMNU_BLACKGLOVES",	"$ZPERKMNU_HELPTEXT_BLACKGLOVES",	"zperk_blackgloves",		"YesNo"
-	ZPerkOption "$ZPERKMNU_GLOVEDFIST",	"$ZPERKMNU_HELPTEXT_GLOVEDFIST",	"zperk_glovedfist",		"YesNo"	
+	ZPerkOption "$ZPERKMNU_GLOVEDFIST",	"$ZPERKMNU_HELPTEXT_GLOVEDFIST",	"zperk_glovedfist",		"YesNo"
+	StaticText ""
+	StaticText "$ZPERKMNU_CATEGORY2", gold
 	ZPerkOption "$ZPERKMNU_FLIPFIST",	"$ZPERKMNU_HELPTEXT_FLIPFIST",		"zperk_flipfist",		"RightLeft"
 	ZPerkOption "$ZPERKMNU_FLIPPISTOL",	"$ZPERKMNU_HELPTEXT_FLIPPISTOL",	"zperk_flippistol",		"RightLeft"
-        ZPerkOption "$ZPERKMNU_ACCURATEPISTOL",	"$ZPERKMNU_HELPTEXT_ACCURATEPISTOL",	"zperk_accuratepistol",		"YesNo"
+	StaticText ""
+	StaticText "$ZPERKMNU_CATEGORY3", gold
 	ZPerkOption "$ZPERKMNU_RESPONSIVE",	"$ZPERKMNU_HELPTEXT_RESPONSIVE",	"zperk_responsive",		"YesNo"
+        ZPerkOption "$ZPERKMNU_ACCURATEPISTOL",	"$ZPERKMNU_HELPTEXT_ACCURATEPISTOL",	"zperk_accuratepistol",		"YesNo"
+	StaticText ""
+	StaticText "$ZPERKMNU_CATEGORY4", gold
 	ZPerkOption "$ZPERKMNU_SMOOTHPROJ",	"$ZPERKMNU_HELPTEXT_SMOOTHPROJ",	"zperk_smoothprojectiles",	"YesNo"
 	ZPerkOption "$ZPERKMNU_FISTLESSBERSK",	"$ZPERKMNU_HELPTEXT_FISTLESSBERSK",	"zperk_fistlessberserk",	"YesNo"
 	StaticText ""
-	StaticText "Version 3.1.4", gold
+	StaticText "$ZPERKMNU_VERSION", green
 }
 
 

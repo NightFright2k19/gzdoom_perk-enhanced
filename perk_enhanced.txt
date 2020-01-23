@@ -2,7 +2,7 @@
 Advanced engine needed : GZDoom v4.3.0 (or newer)
 Primary purpose : Singleplayer/Multiplayer
 ===========================================================================
-Title : Smooth Weapons Enhanced v3.1.4
+Title : Smooth Weapons Enhanced v3.2
 Filename : PERK_ENHANCED.PK3 (formerly PK_ANIM1.WAD / PK_ANIM2.WAD)
 Release date : January 23, 2020
 Author : NightFright / Nash
@@ -101,8 +101,8 @@ content in this file to allow further distribution.
 
 * Changelog *
 
-Version 3.1.4 (Jan 23, 2020)
-----------------------------
+Version 3.2 (Jan 23, 2020)
+--------------------------
 - Mod menu relocated to: Player Setup > Smooth Weapons Enhanced
 - Added option for fistless berserk mode
 - Improved SSG animations (closer to Nevander's 2017 release)
