@@ -7,12 +7,12 @@
 object ZPerkRocket
 {
 	// Vanilla
-    frame MISLA { light ROCKET }
+	frame MISLA { light ROCKET }
 
-    frame MISLB { light ROCKET_X1 }
-    frame MISLC { light ROCKET_X2 }
-    frame MISLD { light ROCKET_X3 }
-	
+	frame MISLB { light ROCKET_X1 }
+	frame MISLC { light ROCKET_X2 }
+	frame MISLD { light ROCKET_X3 }
+
 	// Smooth
 	frame EXPLA { light ROCKET_X2 }
 	frame EXPLB { light ROCKET_X1 }
@@ -31,15 +31,15 @@ object ZPerkRocket
 object ZPerkPlasmaBall
 {
 	// Vanilla
-    frame PLSSA { light PLASMABALL }
-    frame PLSSB { light PLASMABALL }
+	frame PLSSA { light PLASMABALL }
+	frame PLSSB { light PLASMABALL }
 
-    frame PLSEA { light PLASMA_X1 }
-    frame PLSEB { light PLASMA_X2 }
-    frame PLSEC { light PLASMA_X2 }
-    frame PLSED { light PLASMA_X3 }
-    frame PLSEE { light PLASMA_X4 }
-	
+	frame PLSEA { light PLASMA_X1 }
+	frame PLSEB { light PLASMA_X2 }
+	frame PLSEC { light PLASMA_X2 }
+	frame PLSED { light PLASMA_X3 }
+	frame PLSEE { light PLASMA_X4 }
+
 	// Smooth
 	frame PLBLA { light PLASMABALL }
 	frame PLBLB { light PLASMABALL }
@@ -54,7 +54,7 @@ object ZPerkPlasmaBall
 	frame PLXPF { light PLASMA_X3 }
 	frame PLXPG { light PLASMA_X3 }
 	frame PLXPH { light PLASMA_X4 }
-	frame PLXPI { light PLASMA_X4 } 
+	frame PLXPI { light PLASMA_X4 }
 	frame PLXPJ { light PLASMA_X4 }
 	frame PLXPK { light PLASMA_X4 }
 	frame PLXPL { light PLASMA_X4 }
@@ -105,7 +105,7 @@ object ZPerkBFGExtra
 	frame BFE2A { light BFGBALL }
 	frame BFE2B { light BFGBALL_X1 }
 	frame BFE2C { light BFGBALL_X4 }
-	frame BFE2D { light BFGBALL_X5 }	
+	frame BFE2D { light BFGBALL_X5 }
 
 	// Smooth
 	frame BFEXA { light BFGBALL }
