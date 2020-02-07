@@ -106,17 +106,17 @@ class ZPerkHandler : EventHandler
 
 	override void CheckReplacement(ReplaceEvent e)
 	{
-		if	(e.Replacee == "Fist")				e.Replacement = "ZPerkFist";
+		if		(e.Replacee == "Fist")				e.Replacement = "ZPerkFist";
 		else if (e.Replacee == "Chainsaw")			e.Replacement = "ZPerkChainsaw";
 		else if (e.Replacee == "Pistol")			e.Replacement = "ZPerkPistol";
 		else if (e.Replacee == "Shotgun")			e.Replacement = "ZPerkShotgun";
 		else if (e.Replacee == "Chaingun")			e.Replacement = "ZPerkChaingun";
-		else if (e.Replacee == "RocketLauncher")		e.Replacement = "ZPerkRocketLauncher";
-		else if (e.Replacee == "PlasmaRifle")			e.Replacement = "ZPerkPlasmaRifle";
+		else if (e.Replacee == "RocketLauncher")	e.Replacement = "ZPerkRocketLauncher";
+		else if (e.Replacee == "PlasmaRifle")		e.Replacement = "ZPerkPlasmaRifle";
 		else if (e.Replacee == "BFG9000")			e.Replacement = "ZPerkBFG9000";
 		else if (e.Replacee == "Berserk")			e.Replacement = "ZPerkBerserk";
 		else if (e.Replacee == "Rocket")			e.Replacement = "ZPerkRocket";
-		else if (e.Replacee == "PlasmaBall")			e.Replacement = "ZPerkPlasmaBall";
+		else if (e.Replacee == "PlasmaBall")		e.Replacement = "ZPerkPlasmaBall";
 		else if (e.Replacee == "BFGBall")			e.Replacement = "ZPerkBFGBall";
 		else if (e.Replacee == "BFGExtra")			e.Replacement = "ZPerkBFGExtra";
 	}
