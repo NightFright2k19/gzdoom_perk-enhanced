@@ -425,7 +425,9 @@ class ZPerkPlasmaRifle : PlasmaRifle
 		}
 		Stop;
 	Flash:
-		TNT1 A 1 A_Light1();
+		TNT1 A 4 A_Light1;
+		Goto LightDone;
+		TNT1 B 4 A_Light1;
 		Goto LightDone;
 
 	SwapSprites:
