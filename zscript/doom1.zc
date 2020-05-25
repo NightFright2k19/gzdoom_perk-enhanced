@@ -343,7 +343,7 @@ class ZPerkRocketLauncher : RocketLauncher
 		PKRL A 0 A_ReFire();
 		Goto Ready;
 	Flash:
-		PKRF A 3 Bright A_Light1();
+		PKRF A 2 Bright A_Light1();
 		PKRF B 2 Bright;
 		PKRF C 2 Bright A_Light2();
 		PKRF DE 3 Bright;
