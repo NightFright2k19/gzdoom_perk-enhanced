@@ -15,14 +15,14 @@ Other Files By Author : Laz Rojas' WolfenDoom for ZDoom
 Description : Per Kristian's mod for improved Doom weapon animations is brought
               to a new level! Choose between many neat new options through an
               ingame menu (Player Setup > Smooth Weapons Enhanced):
-		- Standard (brown) or black gloves
-		- Fist with or without gloves
-		- Left- or right-handedness for fist and pistol
-		- Faster weapon switching (optional)
-		- Smoothly animated rockets, plasma and BFG projectiles (optional)
-		- Pistol without shot dispersal (optional)
+                - Standard (brown) or black gloves
+                - Fist with or without gloves
+                - Left- or right-handedness for fist and pistol
+                - Faster weapon switching (optional)
+                - Smoothly animated rockets, plasma and BFG projectiles (optional)
+                - Pistol without shot dispersal (optional)
                 - Entering berserk mode without switching to fists (optional)
- 
+
               Additionally, following improvements have been implemented
               compared to the original PerK mod:
                 - Pistol: light from the left (like original), visible arm
@@ -41,16 +41,16 @@ Additional Credits to:  Nash Muhandes  ... Full mod overhaul, ZScript rewrite
                         Blox ............. Improved gloves, SG/SSG frame tweaks, fixes for
                                            Z86 Chaingun, extra Plasmagun frames & code
                         Blue Shadow ...... Plasmagun code tweaks
-			DenisBelmondo .... Animation tweaks
+                        DenisBelmondo .... Animation tweaks
                         Gifty ............ Smooth rocket, plasma and BFG projectile sprites
                         IcyFreezy ........ Black gloves from blakglov2.wad
                         JoeyTD ........... Flipped Pistol with arm
-			m8f .............. Accurate pistol option
+                        m8f .............. Accurate pistol option
                         Minigunner ....... "Polished Skull" Shotgun muzzleflash
                         NeuralStunner .... PerK fists with gloves
                         Nevander ......... Dynamic light fix for player, code tweaks
                         Phi108 ........... ZDoom DECORATE
-			Scuba Steve ...... Improved shotgun sprites
+                        Scuba Steve ...... Improved shotgun sprites
                         Void Weaver ...... Help with sound code for "multi-path" Chainsaw
                         Z86 .............. Smoother Chainsaw, SSG frame fix, Chaingun
                                            rotation/animation fix, smooth BFG
@@ -106,7 +106,7 @@ Version 3.2 (Jan 23, 2020)
 - Mod menu relocated to: Player Setup > Smooth Weapons Enhanced
 - Added option for fistless berserk mode
 - Improved SSG animations (closer to Nevander's 2017 release)
-- Changed all CVARs to "No"/"Left" by default (for vanilla visuals) 
+- Changed all CVARs to "No"/"Left" by default (for vanilla visuals)
 - Updated doom1.zc with GZD 4.3.0 code (A_PlaySound replaced by A_StartSound)
 
 Version 3.1.3 (Jan 10, 2020)
@@ -152,10 +152,10 @@ Version 2.0 (Jul 12, 2019)
 --------------------------
 - File format changed from WAD to PK3
 - Standard and Black Gloves Edition merged (yeah, baby!)
-- Class selection lets you choose between: 
+- Class selection lets you choose between:
    1) "Smooth Weapons" (improved PerK animations, normal weapon switching)
    2) "Fast Weapon Switch" (the same, but with additional fast weapon switching)
-   3) "Black Gloves: Smooth" (like #1, but with black gloves) 
+   3) "Black Gloves: Smooth" (like #1, but with black gloves)
    4) "Black Gloves: Fast Switch" (like #2, but with black gloves)
 - Lump filtering (prevents getting SSG in Doom 1 via IDFA/IDKFA)
 - Faster weapon switching (also for chainsaw)
@@ -164,7 +164,7 @@ Version 2.0 (Jul 12, 2019)
 
 Version 1.4 (Jul 3, 2019)
 -------------------------
-- Implemented Nevander's changes from September 2017: 
+- Implemented Nevander's changes from September 2017:
 	> Weapons (except chainsaw) switch 2x faster
 	> Weapon responsiveness when firing improved
 	> BFG animation improved
@@ -196,7 +196,7 @@ Version 1.2 (Jan 18, 2013)
 
 Version 1.1 (Jan 15, 2013)
 --------------------------
-- Centered positions for SG, SSG, CG, RL, PR, BFG (compatibility to Doom 2 
+- Centered positions for SG, SSG, CG, RL, PR, BFG (compatibility to Doom 2
   Minor Sprite Fixing Project)
 - Replacement of three fist sprites (improved gloves by Blox)
 
