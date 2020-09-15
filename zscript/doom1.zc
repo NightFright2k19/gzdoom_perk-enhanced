@@ -32,6 +32,8 @@
 
 class ZPerkFist : Fist
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 1;
@@ -57,10 +59,10 @@ class ZPerkFist : Fist
 	States
 	{
 	Select:
-		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZRaise(); }
 		Loop;
 	Deselect:
-		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZLower(); }
 		Loop;
 	Ready:
 		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
@@ -88,6 +90,8 @@ class ZPerkFist : Fist
 
 class ZPerkChainsaw : Chainsaw
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 1;
@@ -106,10 +110,10 @@ class ZPerkChainsaw : Chainsaw
 	Select:
 		TNT1 C 0 A_StartSound("weapons/sawup", 1);
 	SelectLoop:
-		TNT1 C 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		TNT1 C 1 { A_SwapSprites(); A_ZRaise(); }
 		Loop;
 	Deselect:
-		TNT1 C 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		TNT1 C 1 { A_SwapSprites(); A_ZLower(); }
 		Loop;
 	Ready:
 		TNT1 A 0;
@@ -140,6 +144,8 @@ class ZPerkChainsaw : Chainsaw
 
 class ZPerkPistol : Pistol
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 2;
@@ -178,10 +184,10 @@ class ZPerkPistol : Pistol
 	States
 	{
 	Select:
-		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZRaise(); }
 		Loop;
 	Deselect:
-		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZLower(); }
 		Loop;
 	Ready:
 		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
@@ -213,6 +219,8 @@ class ZPerkPistol : Pistol
 
 class ZPerkShotgun : Shotgun
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 3;
@@ -234,10 +242,10 @@ class ZPerkShotgun : Shotgun
 	States
 	{
 	Select:
-		TNT1 A 1 { A_SwapSprites(); A_Raise(); if (zperk_responsive) A_Raise(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZRaise(); }
 		Loop;
 	Deselect:
-		TNT1 A 1 { A_SwapSprites(); A_Lower(); if (zperk_responsive) A_Lower(); }
+		TNT1 A 1 { A_SwapSprites(); A_ZLower(); }
 		Loop;
 	Ready:
 		TNT1 A 1 { A_SwapSprites(); A_WeaponReady(); }
@@ -278,6 +286,8 @@ class ZPerkShotgun : Shotgun
 
 class ZPerkChaingun : Chaingun
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 4;
@@ -292,10 +302,10 @@ class ZPerkChaingun : Chaingun
 	States
 	{
 	Select:
-		CHGG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		CHGG A 1 A_ZRaise();
 		Loop;
 	Deselect:
-		CHGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		CHGG A 1 A_ZLower();
 		Loop;
 	Fire:
 		PKCG A 1 A_ZFireCGun();
@@ -330,6 +340,8 @@ class ZPerkChaingun : Chaingun
 
 class ZPerkRocketLauncher : RocketLauncher
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 5;
@@ -343,10 +355,10 @@ class ZPerkRocketLauncher : RocketLauncher
 	States
 	{
 	Select:
-		MISG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		MISG A 1 A_ZRaise();
 		Loop;
 	Deselect:
-		MISG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		MISG A 1 A_ZLower();
 		Loop;
 	Fire:
 		PKRL A 4 A_GunFlash();
@@ -399,6 +411,8 @@ class ZPerkRocket : Rocket
 
 class ZPerkPlasmaRifle : PlasmaRifle
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 6;
@@ -419,10 +433,10 @@ class ZPerkPlasmaRifle : PlasmaRifle
 	States
 	{
 	Select:
-		PLSG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		PLSG A 1 A_ZRaise();
 		Loop;
 	Deselect:
-		PLSG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		PLSG A 1 A_ZLower();
 		Loop;
 	Fire:
 		PLSF C 1 Bright A_ZFirePlasma();
@@ -501,6 +515,8 @@ class ZPerkPlasmaBall : PlasmaBall
 
 class ZPerkBFG9000 : BFG9000
 {
+	mixin ZPerkMixin;
+
 	Default
 	{
 		Weapon.SlotNumber 7;
@@ -514,10 +530,10 @@ class ZPerkBFG9000 : BFG9000
 	States
 	{
 	Select:
-		BFGG A 1 { A_Raise(); if (zperk_responsive) A_Raise(); }
+		BFGG A 1 A_ZRaise();
 		Loop;
 	Deselect:
-		BFGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
+		BFGG A 1 A_ZLower();
 		Loop;
 	Fire:
 		BFGG A 20 A_BFGSound();
