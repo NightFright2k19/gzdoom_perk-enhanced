@@ -58,6 +58,33 @@ class OptionMenuItemZPerkSlider : OptionMenuItemSlider
 	}
 }
 
+class OptionMenuItemZPerkControl : OptionMenuItemControl
+{
+	String mTooltip;
+
+	OptionMenuItemZPerkControl Init(String label, String tooltip, Name command)
+	{
+		mTooltip = tooltip;
+		Super.Init(label, command);
+		return self;
+	}
+}
+
+/*
+// This doesn't work because mUh eXpLoiTs lmaaaaoooo
+class OptionMenuItemZPerkSafeCommand : OptionMenuItemSafeCommand
+{
+	String mTooltip;
+
+	OptionMenuItemZPerkSafeCommand Init(String label, String tooltip, Name command, String prompt = "")
+	{
+		mTooltip = tooltip;
+		Super.Init(label, command, prompt);
+		return self;
+	}
+}
+*/
+
 //===========================================================================
 //
 // ZPerKWeapons Menu
@@ -66,32 +93,143 @@ class OptionMenuItemZPerkSlider : OptionMenuItemSlider
 
 class ZPerkMenu : OptionMenu
 {
-	override void Drawer ()
+	const START_TIME = 75;
+	const END_TIME = 120;
+	const SCROLL_SPEED = 8;
+	const MAX_ASPECT = 16 / 9.;
+
+	int mDefaultPosition;
+	String mTooltip;
+
+	private int startTimer;
+	private int endTimer;
+	private int scrollTimer;
+	private int prevSelected;
+
+	override void Init(Menu parent, OptionMenuDescriptor desc)
 	{
+		Super.Init(parent, desc);
+
+		mDefaultPosition = mDesc.mPosition;
+		prevSelected = -1;
+	}
+
+	override void Drawer(void)
+	{
+		mToolTip = "";
+
+		if (mDesc.mSelectedItem >= 0)
+		{
+			let item = mDesc.mItems[mDesc.mSelectedItem];
+			if (item is "OptionMenuItemZPerkOption")
+			{
+				mToolTip = StringTable.Localize(OptionMenuItemZPerkOption(item).mTooltip);
+			}
+			else if (item is "OptionMenuItemZPerkSlider")
+			{
+				mToolTip = StringTable.Localize(OptionMenuItemZPerkSlider(item).mTooltip);
+			}
+			else if (item is "OptionMenuItemZPerkControl")
+			{
+				mToolTip = StringTable.Localize(OptionMenuItemZPerkControl(item).mTooltip);
+			}
+		}
+
+		Font of = OptionFont();
+		int fHeight = of.GetHeight() * CleanYFac_1;
+		int padding = fHeight << 1;
+
+		if (prevSelected != mDesc.mSelectedItem)
+		{
+			startTimer = START_TIME;
+			endTimer = 0;
+			scrollTimer = 0;
+		}
+
+		if (mToolTip.Length() > 0)
+		{
+			int realWidth = Screen.GetWidth();
+			int height = Screen.GetHeight();
+
+			int width = realWidth;
+			if (width / height > MAX_ASPECT)
+			{
+				width = int(height * MAX_ASPECT);
+			}
+
+			int textBoxWidth = int(width * 3 / 4.);
+			int textBoxStart = width / 8 + (realWidth - width) / 2;
+
+			int length = of.StringWidth(mToolTip) * CleanXFac_1;
+			int xOfs = (realWidth - length) / 2;
+			if (length > textBoxWidth)
+			{
+				xOfs = textBoxStart;
+				if (startTimer <= 0)
+				{
+					xOfs -= SCROLL_SPEED * (endTimer <= 0 ? scrollTimer++ : scrollTimer);
+
+					int end = xOfs + length;
+					if (endTimer > 0 || end < textBoxStart + textBoxWidth)
+					{
+						xOfs += (textBoxStart + textBoxWidth - end);
+						if (endTimer <= 0)
+						{
+							endtimer = END_TIME;
+						}
+					}
+				}
+
+				if (endTimer <= 0)
+				{
+					textBoxWidth -= of.StringWidth("...") * CleanXFac_1;
+				}
+			}
+
+			int cx, cy, cw, ch;
+			[cx, cy, cw, ch] = Screen.GetClipRect();
+			Screen.SetClipRect(textBoxStart, padding, textBoxWidth, fHeight);
+
+			Screen.DrawText(of, OptionMenuSettings.mFontColorValue,
+							xOfs, padding,
+							mToolTip,
+							DTA_CleanNoMove_1, true);
+
+			Screen.SetClipRect(cx, cy, cw, ch);
+
+			if (length > textBoxWidth && endTimer <= 0)
+			{
+				Screen.DrawText(of, OptionMenuSettings.mFontColorValue,
+								textBoxStart+textBoxWidth, padding,
+								"...",
+								DTA_CleanNoMove_1, true);
+			}
+		}
+
+		if (startTimer > 0)
+		{
+			startTimer--;
+		}
+
+		if (endTimer > 0)
+		{
+			endTimer--;
+			if (endTimer <= 0)
+			{
+				scrollTimer = 0;
+				startTimer = START_TIME;
+			}
+		}
+
+		int shift = -padding / CleanYFac_1;
+		if (shift > mDefaultPosition)
+			shift = mDefaultPosition;
+
+		mDesc.mPosition = shift;
+		prevSelected = mDesc.mSelectedItem;
+
 		Super.Drawer();
 
-		String tt;
-
-		if (mDesc.mSelectedItem > 0)
-		{
-			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemZPerkOption")
-			{
-				tt = StringTable.Localize(OptionMenuItemZPerkOption(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
-
-			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemZPerkSlider")
-			{
-				tt = StringTable.Localize(OptionMenuItemZPerkSlider(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
-		}
-
-		if (tt.Length() > 0)
-		{
-			Screen.DrawText (OptionFont(), OptionMenuSettings.mFontColorValue,
-				(Screen.GetWidth() - OptionFont().StringWidth (tt) * CleanXfac_1) / 2,
-				BigFont.GetHeight() * CleanYfac_1 * 2.5,
-				tt,
-				DTA_CleanNoMove_1, true);
-		}
+		mDesc.mPosition = mDefaultPosition;
 	}
 }
