@@ -146,7 +146,7 @@ class ZPerkPistol : Pistol
 		Decal "BulletChip";
 	}
 
-	action void A_ZFirePistol()
+	action void A_ZFirePistol(void)
 	{
 		if (zperk_accuratepistol)
 		{
@@ -219,6 +219,11 @@ class ZPerkShotgun : Shotgun
 		Decal "BulletChip";
 	}
 
+	action void A_ZFireShotgun(void)
+	{
+		A_FireShotgun();
+	}
+
 	action void A_SwapSprites(void)
 	{
 		let psp = player.FindPSprite(PSP_WEAPON);
@@ -240,7 +245,7 @@ class ZPerkShotgun : Shotgun
 	Fire:
 		TNT1 A 0 A_SwapSprites();
 		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
-		"####" A 2 A_FireShotgun();
+		"####" A 2 A_ZFireShotgun();
 		"####" A 5;
 		"####" B 2;
 		"####" C 1;
@@ -279,6 +284,11 @@ class ZPerkChaingun : Chaingun
 		Decal "BulletChip";
 	}
 
+	action void A_ZFireCGun(void)
+	{
+		A_FireCGun();
+	}
+
 	States
 	{
 	Select:
@@ -288,9 +298,9 @@ class ZPerkChaingun : Chaingun
 		CHGG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
 		Loop;
 	Fire:
-		PKCG A 1 A_FireCGun();
+		PKCG A 1 A_ZFireCGun();
 		PKCG BCD 1;
-		PKCG A 1 A_FireCGun();
+		PKCG A 1 A_ZFireCGun();
 		PKCG BCD 1;
 		PKCG B 0 A_ReFire();
 		PKCG A 1 A_WeaponReady();
@@ -325,6 +335,11 @@ class ZPerkRocketLauncher : RocketLauncher
 		Weapon.SlotNumber 5;
 	}
 
+	action void A_ZFireMissile(void)
+	{
+		A_FireMissile();
+	}
+
 	States
 	{
 	Select:
@@ -336,7 +351,7 @@ class ZPerkRocketLauncher : RocketLauncher
 	Fire:
 		PKRL A 4 A_GunFlash();
 		PKRL B 2;
-		PKRL D 3 A_FireMissile();
+		PKRL D 3 A_ZFireMissile();
 		PKRL C 3;
 		PKRL BE 2;
 		PKRL FG 2;
@@ -389,6 +404,11 @@ class ZPerkPlasmaRifle : PlasmaRifle
 		Weapon.SlotNumber 6;
 	}
 
+	action void A_ZFirePlasma(void)
+	{
+		A_FirePlasma();
+	}
+
 	action void A_SwapSprites(void)
 	{
 		let psp = player.FindPSprite(PSP_WEAPON);
@@ -405,7 +425,7 @@ class ZPerkPlasmaRifle : PlasmaRifle
 		PLSG A 1 { A_Lower(); if (zperk_responsive) A_Lower(); }
 		Loop;
 	Fire:
-		PLSF C 1 Bright A_FirePlasma();
+		PLSF C 1 Bright A_ZFirePlasma();
 		PLSF D 2 Bright;
 		TNT1 A 0 A_ReFire();
 		PLSF EFE 1 Bright;
@@ -486,6 +506,11 @@ class ZPerkBFG9000 : BFG9000
 		Weapon.SlotNumber 7;
 	}
 
+	action void A_ZFireBFG(void)
+	{
+		A_FireBFG();
+	}
+
 	States
 	{
 	Select:
@@ -498,7 +523,7 @@ class ZPerkBFG9000 : BFG9000
 		BFGG A 20 A_BFGSound();
 		BFGG B 2 A_GunFlash();
 		BFGG CDEF 2 Bright;
-		BFGG F 0 A_FireBFG();
+		BFGG F 0 A_ZFireBFG();
 		BFGG GHIHG 2;
 		BFGG A 12 A_ReFire();
 		Goto Ready;

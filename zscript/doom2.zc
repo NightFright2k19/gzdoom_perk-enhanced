@@ -38,6 +38,11 @@ class ZPerkSuperShotgun : SuperShotgun
 		Decal "BulletChip";
 	}
 
+	action void A_ZFireShotgun2(void)
+	{
+		A_FireShotgun2();
+	}
+
 	action void A_SwapSprites(void)
 	{
 		let psp = player.FindPSprite(PSP_WEAPON);
@@ -60,7 +65,7 @@ class ZPerkSuperShotgun : SuperShotgun
 		TNT1 A 0 A_SwapSprites();
 		"####" A 3 { if (zperk_responsive) A_SetTics(0); }
 
-		"####" A 5 A_FireShotgun2();
+		"####" A 5 A_ZFireShotgun2();
 		"####" "#" 0 { if (zperk_responsive) A_SetTics(3); }
 		"####" BC 3;
 		"####" D 3;
