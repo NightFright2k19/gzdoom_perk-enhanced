@@ -42,7 +42,7 @@ mixin class ZPerkMixin
 	{
 		if (zperk_responsive)
 		{
-			spd *= 2;
+			spd *= zperk_weaponswitchmult;
 		}
 		A_Raise(spd);
 	}
@@ -57,7 +57,7 @@ mixin class ZPerkMixin
 	{
 		if (zperk_responsive)
 		{
-			spd *= 2;
+			spd *= zperk_weaponswitchmult;
 		}
 		A_Lower(spd);
 	}

@@ -11,6 +11,7 @@ ZPERKMNU_VERSION   = "Version 3.2";
 // Menu options
 ZPERKMNU_BLACKGLOVES    = "Black color";
 ZPERKMNU_RESPONSIVE     = "Responsive weapons";
+ZPERKMNU_WPNSWITCHMULT  = "Weapon switch speed multiplier";
 ZPERKMNU_GLOVEDFIST     = "Cover fists";
 ZPERKMNU_FLIPFIST       = "Fists";
 ZPERKMNU_FLIPPISTOL     = "Pistol";
@@ -25,6 +26,7 @@ ZPERKMNU_RIGHT = "Right";
 // Help text
 ZPERKMNU_HELPTEXT_BLACKGLOVES    = "Enable black gloves";
 ZPERKMNU_HELPTEXT_RESPONSIVE     = "Faster weapon switching (faster firing for pistol and shotguns)";
+ZPERKMNU_HELPTEXT_WPNSWITCHMULT  = "How fast to switch weapons when \c[RED]responsive weapons\c[WHITE] is enabled";
 ZPERKMNU_HELPTEXT_GLOVEDFIST     = "Add gloves to fists";
 ZPERKMNU_HELPTEXT_FLIPFIST       = "Toggle punching handedness (default: left)";
 ZPERKMNU_HELPTEXT_FLIPPISTOL     = "Toggle pistol handedness (default: left)";
