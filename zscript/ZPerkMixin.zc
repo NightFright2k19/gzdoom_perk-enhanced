@@ -40,11 +40,11 @@ mixin class ZPerkMixin
 
 	action void A_ZRaise(int spd = 6)
 	{
-		A_Raise(spd);
 		if (zperk_responsive)
 		{
-			A_Raise(spd);
+			spd *= 2;
 		}
+		A_Raise(spd);
 	}
 
 	//===========================================================================
@@ -55,10 +55,10 @@ mixin class ZPerkMixin
 
 	action void A_ZLower(int spd = 6)
 	{
-		A_Lower(spd);
 		if (zperk_responsive)
 		{
-			A_Lower(spd);
+			spd *= 2;
 		}
+		A_Lower(spd);
 	}
 }
