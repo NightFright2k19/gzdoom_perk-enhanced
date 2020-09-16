@@ -49,12 +49,33 @@ class OptionMenuItemZPerkOption : OptionMenuItemOption
 class OptionMenuItemZPerkSlider : OptionMenuItemSlider
 {
 	String mTooltip;
+	CVar mGrayCheck;
 
-	OptionMenuItemZPerkSlider Init(String label, String tooltip, Name command, double min, double max, double step, int showval = 1)
+	OptionMenuItemZPerkSlider Init(String label, String tooltip, Name command, double min, double max, double step, int showval = 1, CVar graycheck = NULL)
 	{
 		mTooltip = tooltip;
 		Super.Init(label, command, min, max, step, showval);
+		mGrayCheck = graycheck;
 		return self;
+	}
+
+	bool IsGrayed(void)
+	{
+		return mGrayCheck != NULL && !mGrayCheck.GetInt();
+	}
+
+	override bool Selectable(void)
+	{
+		return !IsGrayed();
+	}
+
+	override int Draw(OptionMenuDescriptor desc, int y, int indent, bool selected)
+	{
+		bool grayed = mGrayCheck != null && !mGrayCheck.GetInt();
+		drawLabel(indent, y, selected ? OptionMenuSettings.mFontColorSelection : OptionMenuSettings.mFontColor, grayed);
+		mDrawX = indent + CursorSpace();
+		DrawSlider (mDrawX, y, mMin, mMax, GetSliderValue(), mShowValue, indent);
+		return indent;
 	}
 }
 

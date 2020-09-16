@@ -26,7 +26,7 @@ OptionMenu "ZPerkMenu"
 	StaticText ""
 	StaticText "$ZPERKMNU_CATEGORY3", gold
 	ZPerkOption "$ZPERKMNU_RESPONSIVE",			"$ZPERKMNU_HELPTEXT_RESPONSIVE",		"zperk_responsive",			"YesNo"
-	ZPerkSlider "$ZPERKMNU_WPNSWITCHMULT",		"$ZPERKMNU_HELPTEXT_WPNSWITCHMULT",		"zperk_weaponswitchmult",	2, 20, 1
+	ZPerkSlider "$ZPERKMNU_WPNSWITCHMULT",		"$ZPERKMNU_HELPTEXT_WPNSWITCHMULT",		"zperk_weaponswitchmult",	2, 20, 1, 1, "zperk_responsive"
 	ZPerkOption "$ZPERKMNU_ACCURATEPISTOL",		"$ZPERKMNU_HELPTEXT_ACCURATEPISTOL",	"zperk_accuratepistol",		"YesNo"
 	StaticText ""
 	StaticText "$ZPERKMNU_CATEGORY4", gold
