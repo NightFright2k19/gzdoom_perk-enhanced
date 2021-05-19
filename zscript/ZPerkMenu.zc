@@ -59,7 +59,7 @@ class OptionMenuItemZPerkSlider : OptionMenuItemSlider
 		return self;
 	}
 
-	bool IsGrayed(void)
+	override bool IsGrayed(void)
 	{
 		return mGrayCheck != NULL && !mGrayCheck.GetInt();
 	}
