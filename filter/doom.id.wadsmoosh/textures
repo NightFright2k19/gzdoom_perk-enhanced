@@ -1,0 +1,17 @@
+sprite sht2a0, 59, 55
+{
+	offset -130, -113
+	sprite "/sprites_placeholder/supershotgun/sht2a0.png", 0, 0
+}
+
+sprite sht2i0, 55, 37
+{
+	offset -133, -99
+	sprite "/sprites_placeholder/supershotgun/sht2i0.png", 0, 0
+}
+
+sprite sht2j0, 65, 46
+{
+	offset -127, -90
+	sprite "/sprites_placeholder/supershotgun/sht2j0.png", 0, 0
+}
